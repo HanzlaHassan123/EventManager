@@ -1,0 +1,30 @@
+﻿@model EventManager.Models.Domain.Category
+@{
+}
+<form class="w-40" asp-action="Update" method="post">
+    <h2 class="pb-10">Update Category</h2>
+    <input type="hidden" class="input" asp-for="Id">
+
+    <div class="input-container">
+        <label asp-for="CategoryName" class="w-40">CategoryName</label>
+        <input type="text" class="input" asp-for="CategoryName">
+    </div>
+    <div class="message-box pd-x-28 error">
+        <span asp-validation-for="CategoryName">
+
+        </span>
+    </div>
+
+
+    @if (TempData["msg"] != null)
+    {
+        <div class="alert mb-1">
+            @TempData["msg"]
+        </div>
+    }
+
+    <div class="input-container">
+        <button class="btn btn-default" type="submit">Save</button>
+        <a class="btn btn-sec" href="/Category/CategoryList">All records</a>
+    </div>
+</form>
